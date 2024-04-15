@@ -1,0 +1,22 @@
+mysqlcon = New MySqlConnection
+mysqlcon.ConnectionString = "server=localhost;userid=root; password=ImpetuousMarch*22; database=EXAM_SYSTEM"
+Dim READER As MySqlDataReader
+
+Try
+    mysqlcon.Open()
+    Dim Query As String
+    Query = "delete from EXAM_SYSTEM.student_data where AdminNo='" & txtAdmin.Text & "'"
+    command = New MySqlCommand(Query, mysqlcon)
+    READER = command.ExecuteReader
+
+    MessageBox.Show("DELETED")
+    mysqlcon.Close()
+
+Catch ex As MySqlException
+    MessageBox.Show(ex.Message)
+
+Finally
+    mysqlcon.Dispose()
+
+
+End Try
