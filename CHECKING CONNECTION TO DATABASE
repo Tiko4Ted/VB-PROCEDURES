@@ -1,0 +1,13 @@
+mysqlcon = New MySqlConnection
+mysqlcon.ConnectionString = "server=localhost;userid=root; password=ImpetuousMarch*22; database=EXAM_SYSTEM"
+Try
+    mysqlcon.Open()
+    MessageBox.Show("success")
+    mysqlcon.Close()
+
+Catch ex As MySqlException
+    MessageBox.Show(ex.Message)
+Finally
+    mysqlcon.Dispose()
+
+End Try
